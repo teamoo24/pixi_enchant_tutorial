@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
- 	"tsc": "tsc -p .",
+    "tsc": "tsc -p .",
     "tslint": "tslint -p .",
     "tslint:fix": "tslint -p . --fix",
     "typedoc": "typedoc -p .",
@@ -15,6 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/pixi.js": "^4.8.4",
+    "spritesmith-cli": "^1.1.2",
+    "spritesmith-texturepacker": "^1.0.0",
     "ts-loader": "^7.0.2",
     "tslint": "^6.1.2",
     "tslint-config-airbnb": "^5.11.2",

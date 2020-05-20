@@ -4,11 +4,8 @@ import TitleScene from 'Scene/TitleScene'
 
 window.onload = () => {
 	GameManager.start({
-		glWidth:1136,
-		glHeight: 640,
-		option: {
-			backgroundColor: 0x222222
-		},
+		glWidth:320,
+		glHeight: 320,
 		view:document.getElementById("game")
 	})
 
