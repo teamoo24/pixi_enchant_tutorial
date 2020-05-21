@@ -31,6 +31,17 @@ export default class TitleScene extends Scene {
 		this.player.y = 50;
 
 		this.addChild(this.player)
+
+
+		window.addEventListener("keydown",this.keysDown);
+		window.addEventListener("keyup",this.keysUp);
+	}
+
+	public keysDown(e) {
+		console.log("keysdown : "+ e.code)
+	}
+	public keysUp(e) {
+		console.log("keysup :" + e.code)
 	}
 
 	/**
