@@ -24,12 +24,16 @@ export default class TitleScene extends Scene {
 	constructor() {
 		super();
 		this.setText();
+		this.setbg();
 		this.createPlayerSheet();
 		this.createPlayer();
 		window.addEventListener("keydown",this.keysDown);
 		window.addEventListener("keyup",this.keysUp);
 	}
 
+	/**
+	*	テキストを追加
+	*/
 	public setText():void {
 		this.text = new PIXI.Text('pixi.js サンプル', new PIXI.TextStyle({
 			fontFamily:'sens-serif',
@@ -39,6 +43,30 @@ export default class TitleScene extends Scene {
 		this.text.anchor.set(0, 0);
 		this.text.position.set(16,0);
 		GameManager.instance.game.stage.addChild(this.text);
+	}
+
+	/**
+	*	バックグラウンドを追加
+	*/
+	public setbg():void {
+		let image = new PIXI.Sprite(
+			new PIXI.Texture(
+				PIXI.BaseTexture.from(
+					Resource.Bg.flower[0]
+					),new PIXI.Rectangle(
+					0,96,126,64
+					)
+					)
+			);
+		let w = 126
+		let h = 64
+		image.width = w;
+		image.height = h;
+		image.anchor.set(0,0)
+		image.x = 64
+		image.y = 64
+
+		GameManager.instance.game.stage.addChild(image)
 	}
 
 	/**

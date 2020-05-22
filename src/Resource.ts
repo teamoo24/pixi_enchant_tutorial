@@ -7,6 +7,11 @@
  			'assets/betty.png'
  		]
  	},
+ 	Bg: {
+ 		flower:[
+ 			'assets/flowers.png'
+ 		]
+ 	}
 
  })
 
