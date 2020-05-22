@@ -23,10 +23,22 @@ export default class TitleScene extends Scene {
 	*/
 	constructor() {
 		super();
+		this.setText();
 		this.createPlayerSheet();
 		this.createPlayer();
 		window.addEventListener("keydown",this.keysDown);
 		window.addEventListener("keyup",this.keysUp);
+	}
+
+	public setText():void {
+		this.text = new PIXI.Text('pixi.js サンプル', new PIXI.TextStyle({
+			fontFamily:'sens-serif',
+			fontSize: 18,
+			fill: 0xffffff
+		}));
+		this.text.anchor.set(0, 0);
+		this.text.position.set(16,0);
+		GameManager.instance.game.stage.addChild(this.text);
 	}
 
 	/**
