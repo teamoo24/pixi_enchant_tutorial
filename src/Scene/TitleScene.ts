@@ -9,6 +9,10 @@ export default class TitleScene extends Scene {
 	private count: number = 0;
 
 	private player!: PIXI.Sprite;
+
+	static keys: { [key: number]: boolean; } = {};
+
+	private keyslist;
 	/**
 	*	コンストラクタ
 	*	描画物を初期化する。
@@ -38,16 +42,53 @@ export default class TitleScene extends Scene {
 	}
 
 	public keysDown(e) {
-		console.log("keysdown : "+ e.code)
-	}
-	public keysUp(e) {
-		console.log("keysup :" + e.code)
+		console.log(e.keyCode)
+
+		TitleScene.keys[e.keyCode] = true;
 	}
 
+	public keysUp(e) {
+		console.log(e.keyCode)
+
+		TitleScene.keys[e.keyCode] = false;
+	}
+	// switch (e.code) {
+	// 	case "ArrowLeft":	
+	// 		console.log("L")
+	// 		break;
+	// 	case "ArrowRight":
+	// 		console.log("R")
+	// 		break;
+	// 	case "ArrowUp":
+	// 		console.log("U")
+	// 		break;
+	// 	case "ArrowDown":
+	// 		console.log("D")
+	// 		break;
+	// 	default:
+	// 		console.log(e.code)
+	// 		break;
+	// }
 	/**
    	* 毎フレームの更新処理
    	*/
    	public update(dt: number): void {
    		super.update(dt);
+
+   		if (TitleScene.keys['39']) {
+   			this.player.x += 5;
+   		}
+
+		if (TitleScene.keys['37']) {
+   			this.player.x -= 5;
+   		}
+
+   		if (TitleScene.keys['40']) {
+   			this.player.y += 5;
+   		}
+
+   		if (TitleScene.keys['38']) {
+   			this.player.y -= 5;
+   		}   		
    	}
 }
