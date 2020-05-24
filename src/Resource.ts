@@ -11,6 +11,14 @@
  		flower:[
  			'assets/flowers.png'
  		]
+ 	},
+ 	Sound: {
+ 		bg:[
+ 			'assets/one_0.mp3'
+ 		],
+ 		se:[
+ 			'assets/Ready.wav'
+ 		]
  	}
 
  })

@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import sound from 'pixi-sound';
 import GameManager from 'manager/GameManager'
 import Resource from 'Resource';
 import Scene from 'Scene/Scene'
@@ -26,9 +27,11 @@ export default class TitleScene extends Scene {
 		this.setText();
 		this.setbg();
 		this.createPlayerSheet();
+		this.createSoundResource();
 		this.createPlayer();
 		window.addEventListener("keydown",this.keysDown);
 		window.addEventListener("keyup",this.keysUp);
+		window.addEventListener("click",this.soundPlay)
 	}
 
 	/**
@@ -70,10 +73,25 @@ export default class TitleScene extends Scene {
 	}
 
 	/**
+	*	サウンド初期化
+	*/
+	private createSoundResource(): void {
+		sound.add('bg', Resource.Sound.bg[0]);
+		sound.add('se', Resource.Sound.se[0]);
+	}
+
+	/**
+	*	サウンド再生
+	*/
+	private soundPlay():void {
+		sound.play('bg')
+		sound.play('se')
+	}
+	/**
 	*	キャラクタのアニメーション作成
 	*
 	*/
-	public createPlayerSheet():void {
+	private createPlayerSheet():void {
 
 		let ssheet = PIXI.BaseTexture.from(Resource.Static.charactor[0]);
 		let w = 48;
